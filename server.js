@@ -28,10 +28,19 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
+
 app.use('/auth', auth)
-app.use('/api/count', count)
 app.use('/api/polls', polls)
+app.use('/api/count', count)
+// app.get('/:x/:x', function(req, res){
+//   // res.send('what???', 404);
+//   res.redirect('/')
+// });
 app.use('/', index)
+
+
+
+
 
 const port =  process.env.PORT || 3000;
 app.listen(port, () => console.log('Running on localhost:', port))

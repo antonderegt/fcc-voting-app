@@ -3,9 +3,11 @@
     <h3>Dashboard {{this.$store.state.user.displayName}}</h3>
     <h4>Count: {{this.$store.state.counts.count.count}}</h4>
     <button class="btn btn-primary" @click="incCount()">Increment Count</button>
+    <router-view />
   </div>
   <div v-else>
     <router-link to="/signin"><h3>Click here to sign in</h3></router-link>
+    <router-view />
   </div>
 </template>
 
