@@ -1,15 +1,13 @@
 const express = require('express'),
-      Count = require('../models/count')
+      Count = require('../models/count'),
+      router = express.Router(),
+      countProjection = {
+        __v: false,
+        _id: false
+      }
 
 module.exports = (() => {
     'use strict';
-
-    const router = express.Router();
-
-    const countProjection = {
-      __v: false,
-      _id: false
-    }
 
     router.get('/', (req, res) => {
       Count.findOne({}, countProjection, (err, count) => {

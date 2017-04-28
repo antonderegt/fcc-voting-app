@@ -5,6 +5,7 @@ const express = require('express'),
       passport = require('passport'),
       session = require('express-session'),
       count = require('./server/routes/count'),
+      polls = require('./server/routes/polls'),
       auth = require('./server/routes/auth'),
       index = require('./server/routes/index')
 
@@ -29,6 +30,7 @@ app.use(passport.session())
 
 app.use('/auth', auth)
 app.use('/api/count', count)
+app.use('/api/polls', polls)
 app.use('/', index)
 
 const port =  process.env.PORT || 3000;

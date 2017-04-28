@@ -7,6 +7,14 @@ Vue.use(Vuex)
 
 const state = {
   user: {},
+  polls: [
+    {name: 'No Polls Yet...', votes: 0}
+  ],
+  poll: {
+    result: {
+      name: 'No poll selected'
+    }
+  },
   counts: {
     count: -1
   }

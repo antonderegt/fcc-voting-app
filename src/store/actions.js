@@ -2,15 +2,48 @@ import * as types from './mutation-types'
 import axios from 'axios'
 
 export const getUser = ({commit}) => {
-  axios.get('/isauth')
-  .then(function (response) {
-    console.log('got user data: ', response.data);
+  axios.get(`/isauth`)
+  .then( response => {
+    console.log(`Received user data: ${response.data}`)
     commit(types.GET_USER, response.data)
   })
-  .catch(function (error) {
-    console.log(error);
+  .catch( error => {
+    console.log(error)
   });
 }
+
+export const fetchAllPolls = ({commit}) => {
+  axios.get(`/api/polls`)
+  .then( response => {
+    console.log(`Recieved polls: ${response.data}`)
+    commit(types.FETCH_ALL_POLLS, response.data)
+  })
+  .catch( error => {
+    console.log(error)
+  })
+}
+
+export const fetchPollById = (({commit}, id) => {
+  axios.get(`/api/polls/${id}`)
+  .then( response => {
+    console.log(`Received poll: ${response.data}`)
+    commit(types.FETCH_POLL_BY_ID, response.data)
+  })
+  .catch( error => {
+    console.log(error)
+  })
+})
+
+export const vote = (({commit}, id, option) => {
+  axios.get(`/api/polls/${id}/${option}`)
+  .then( response => {
+    console.log(`Voted: ${response.data}`);
+    commit(types.VOTE, response.data)
+  })
+  .catch( error => {
+    console.log(error)
+  })
+})
 
 export const getCount = ({commit}) => {
   fetch(`/api/count`, {

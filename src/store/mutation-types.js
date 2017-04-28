@@ -1,4 +1,7 @@
 export const GET_USER = 'GET_USER'
+export const FETCH_ALL_POLLS = 'FETCH_ALL_POLLS'
+export const FETCH_POLL_BY_ID = 'FETCH_POLL_BY_ID'
+export const VOTE = 'VOTE'
 export const GET_COUNT = 'GET_COUNT'
 export const INC_COUNT = 'INC_COUNT'
 export const SIGN_OUT = 'SIGN_OUT'
