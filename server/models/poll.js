@@ -10,7 +10,11 @@ var Poll = new Schema({
     value: String,
     votes: Number
   }],
-  votes: Number
+  totalVotes: Number,
+  owner: String,
+  voters: [{
+    ip: String
+  }]
 });
 
 module.exports = mongoose.model('Poll', Poll);

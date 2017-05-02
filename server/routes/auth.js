@@ -6,9 +6,9 @@ router.get('/github',
   passport.authenticate('github'))
 
 router.get('/github/callback',
-  passport.authenticate('github', { failureRedirect: '/' }),
+  passport.authenticate('github', { failureRedirect: '/signin' }),
   function(req, res) {
-    res.redirect('/counter')
+    res.redirect('/')
   })
 
 module.exports = router

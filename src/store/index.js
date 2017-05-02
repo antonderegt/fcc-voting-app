@@ -10,6 +10,11 @@ const state = {
   polls: [
     {name: 'No Polls Yet...', votes: 0}
   ],
+  mypolls: {
+    result: [
+      {name: 'No Polls Yet...', votes: 0}
+    ]
+  },
   poll: {
     result: {
       name: 'No poll selected'

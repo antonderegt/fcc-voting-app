@@ -7,7 +7,8 @@ import store from './store'
 Vue.use(VueRouter)
 import Home from './components/Home.vue'
 import PollsList from './components/PollsList.vue'
-import Counter from './components/Counter.vue'
+import AddPoll from './components/AddPoll.vue'
+import MyPolls from './components/MyPolls.vue'
 import Signin from './components/Signin.vue'
 import Profile from './components/Profile.vue'
 import Poll from './components/Poll.vue'
@@ -18,10 +19,11 @@ const router = new VueRouter({
     { path: '/', component: Home,
       children: [
         { path: '', component: PollsList },
-        { path: '/counter', component: Counter },
+        { path: '/addpoll', component: AddPoll },
+        { path: '/mypolls', component: MyPolls },
         { path: '/signin', component: Signin },
         { path: '/profile', component: Profile },
-        { path: '/polls/:id', component: Poll }
+        { path: 'polls/:id', component: Poll }
       ]
     },
     { path: '*', redirect: '/' }

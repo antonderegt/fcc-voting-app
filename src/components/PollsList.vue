@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h3>Click on a poll you want to vote on.</h3>
     <div class="row">
       <ul class="list-group col-md-6 col-md-offset-3">
@@ -8,25 +8,19 @@
           @click="showPoll(poll)"
           class="list-group-item"
         >
-          <span class="badge">{{poll.votes}}</span>
+          <span class="badge">{{poll.totalVotes}}</span>
           {{poll.name}}
         </button>
       </ul>
     </div>
-    <router-view />
   </div>
 </template>
 
 <script>
-import Poll from './Poll.vue'
-
 export default {
-  components: {
-    Poll
-  },
   methods: {
     showPoll(poll) {
-      this.$router.push(`/polls/${poll._id}`)
+      this.$router.push(`polls/${poll._id}`)
     }
   },
   mounted() {

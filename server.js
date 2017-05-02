@@ -4,7 +4,6 @@ const express = require('express'),
       mongoose = require('mongoose'),
       passport = require('passport'),
       session = require('express-session'),
-      count = require('./server/routes/count'),
       polls = require('./server/routes/polls'),
       auth = require('./server/routes/auth'),
       index = require('./server/routes/index')
@@ -28,19 +27,9 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-
 app.use('/auth', auth)
 app.use('/api/polls', polls)
-app.use('/api/count', count)
-// app.get('/:x/:x', function(req, res){
-//   // res.send('what???', 404);
-//   res.redirect('/')
-// });
 app.use('/', index)
-
-
-
-
 
 const port =  process.env.PORT || 3000;
 app.listen(port, () => console.log('Running on localhost:', port))
